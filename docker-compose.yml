@@ -42,7 +42,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker-files/Dockerfile
     # container_name: php
     ports:
       - "9000:9000"
@@ -73,7 +73,7 @@ services:
   artisan:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: docker-files/Dockerfile
     # container_name: artisan
     volumes:
       - ./:/var/www/html
