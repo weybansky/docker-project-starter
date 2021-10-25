@@ -1,8 +1,5 @@
 FROM nginx:stable-alpine
 
-COPY docker-files/nginx/ssl-certs/certificate.crt /etc/ssl/certs/
-COPY docker-files/nginx/ssl-certs/private.key /etc/ssl/private/
-
 COPY docker-files/nginx/ssl-certs/server.crt /etc/ssl/certs/
 COPY docker-files/nginx/ssl-certs/server.key /etc/ssl/private/
 
