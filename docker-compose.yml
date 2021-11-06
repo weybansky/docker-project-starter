@@ -12,6 +12,7 @@ services:
       context: .
       dockerfile: docker-files/nginx.dockerfile
     # container_name: nginx
+    image: weybansky/nginxssl
     ports:
       - "80:80"
       - "443:443"
