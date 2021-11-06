@@ -6,6 +6,9 @@ networks:
 services:
   nginx:
     build:
+      args:
+        user: weybansky
+        uid: 1000
       context: .
       dockerfile: docker-files/nginx.dockerfile
     # container_name: nginx
@@ -41,22 +44,17 @@ services:
 
   php:
     build:
+      args:
+        user: weybansky
+        uid: 1000
       context: .
       dockerfile: docker-files/Dockerfile
     # container_name: php
+    image: weybansky/ustackyphp73
     ports:
       - "9000:9000"
     volumes:
       - ./:/var/www/html
-    networks:
-      - blog.test
-
-  composer:
-    image: composer:latest
-    # container_name: composer
-    volumes:
-      - ./:/var/www/html
-    working_dir: /var/www/html
     networks:
       - blog.test
 
@@ -66,20 +64,6 @@ services:
     volumes:
       - ./:/var/www/html
     working_dir: /var/www/html
-    entrypoint: ['npm']
-    networks:
-      - blog.test
-
-  artisan:
-    build:
-      context: .
-      dockerfile: docker-files/Dockerfile
-    # container_name: artisan
-    volumes:
-      - ./:/var/www/html
-    depends_on:
-      - mysql
-    working_dir: /var/www/html
-    entrypoint: ['php', '/var/www/html/artisan']
+    entrypoint: ["npm"]
     networks:
       - blog.test
