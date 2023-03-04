@@ -1,4 +1,4 @@
-FROM php:7.3-fpm
+FROM php:8.2.3-fpm
 
 ARG user
 ARG uid

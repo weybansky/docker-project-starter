@@ -51,7 +51,7 @@ services:
       context: .
       dockerfile: docker-files/Dockerfile
     # container_name: php
-    image: weybansky/php73
+    image: weybansky/php82
     ports:
       - "9000:9000"
     volumes:
