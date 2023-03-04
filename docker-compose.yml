@@ -60,7 +60,7 @@ services:
       - blog.test
 
   npm:
-    image: node:16.4.0
+    image: node:18.14.2
     # container_name: npm
     volumes:
       - ./:/var/www/html
