@@ -16,7 +16,13 @@ RUN apt-get update --fix-missing && apt-get install -y \
     unzip \
     sqlite3
 
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN apt-get install curl -sLS https://deb.nodesource.com/setup_18.x | bash - \
+    && apt-get install -y nodejs
+    # && npm install -g npm
+
+# RUN apt-get install npm
+
+# RUN apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN docker-php-ext-install pdo pdo_mysql mbstring exif pcntl bcmath gd
 RUN docker-php-ext-install zip
